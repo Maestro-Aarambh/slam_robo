@@ -78,18 +78,16 @@
   </joint>
 
   <!-- Front wheels -->
-  <joint name="front_right_wheel_joint" type="continuous">
+  <joint name="front_right_wheel_joint" type="fixed">
     <parent link="base_link" />
     <child link="front_right_wheel" />
     <origin xyz="${base_length/4.0} ${-(base_width+wheel_length)/2.0} 0" rpy="0 0 0" />
-    <axis xyz="0 1 0" />
   </joint>
 
-  <joint name="front_left_wheel_joint" type="continuous">
+  <joint name="front_left_wheel_joint" type="fixed">
     <parent link="base_link" />
     <child link="front_left_wheel" />
     <origin xyz="${base_length/4.0} ${(base_width+wheel_length)/2.0} 0" rpy="0 0 0" />
-    <axis xyz="0 1 0" />
   </joint>
 
 </robot>
