@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:property name="length" value="0.01" />
+    <xacro:property name="breadth" value="0.1" />
+    <xacro:property name="height" value="0.05" />
+
+    <link name="camera">
+        <visual>
+            <geometry>
+                <box size="${length} ${breadth} ${height}" />
+            </geometry>
+            <material name="grey" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="${length} ${breadth} ${height}" />
+            </geometry>
+        </collision>
+        <xacro:box_inertia m="0.1" x="${length}" y="${breadth}" z="${height}" 
+                           o_xyz="0 0 0" o_rpy="0 0 0" />
+    </link>
+
+    <joint name="base_cam" type="fixed">
+        <parent link="base_link" />
+        <child link="camera" />
+        <origin xyz="${(base_length+length)/2.0} 0 ${base_height/2.0}" rpy="0 0 0" />
+    </joint>
+</robot>
